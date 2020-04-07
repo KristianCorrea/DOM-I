@@ -43,14 +43,73 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 //NAV
 let navItems = document.querySelectorAll('nav a');
-console.log(navItems);
 let navContent=Object.values(siteContent .nav);
-navItems[0].textContent=navContent[0];
-navItems[1].text=navContent[1];
-navItems[2].text=navContent[2];
-navItems[3].text=navContent[3];
-navItems[4].text=navContent[4];
-navItems[5].text=navContent[5];
+for(i=0; i<6; i++){
+  navItems[i].textContent=navContent[i];
+}
+
+let homeLink = document.createElement('a')
+homeLink.textContent='Home';
+let marketplaceLink = document.createElement('a')
+marketplaceLink.textContent='Marketplace';
+
+let nav=document.querySelector('nav');
+nav.prepend(homeLink);
+nav.append(marketplaceLink);
+navItems = document.querySelectorAll('nav a');
+Array.from(navItems).forEach(function(links){
+  links.style.color='green';
+})
 
 //CTA
-let CTAItems = document.querySelector('.cta')
+let ctaH1 = document.querySelector('h1');
+ctaH1.textContent=siteContent["cta"]["h1"];
+ctaH1.style.color="purple"; //STRETCH
+let ctaIMG = document.getElementById("cta-img");
+ctaIMG.src=siteContent["cta"]["img-src"];
+
+let ctaButton = document.querySelector('.cta-text button');
+ctaButton.textContent=siteContent["cta"]["button"];
+
+//main-content
+let featuresH4=document.querySelector('.top-content > div:nth-child(1) > h4:nth-child(1)')
+featuresH4.textContent=siteContent["main-content"]["features-h4"]
+let featuresContent=document.querySelector('.top-content > div:nth-child(1) > p:nth-child(2)')
+featuresContent.textContent=siteContent["main-content"]["features-content"]
+
+let aboutH4=document.querySelector('.top-content > div:nth-child(2) > h4:nth-child(1)')
+aboutH4.textContent=siteContent["main-content"]["about-h4"]
+let aboutContent=document.querySelector('.top-content > div:nth-child(2) > p:nth-child(2)')
+aboutContent.textContent=siteContent["main-content"]["about-content"]
+
+let middleImgSrc=document.getElementById('middle-img');
+middleImgSrc.src=siteContent["main-content"]["middle-img-src"]
+
+let serviceH4=document.querySelector('.bottom-content > div:nth-child(1) > h4:nth-child(1)')
+serviceH4.textContent=siteContent["main-content"]["services-h4"]  
+let serviceContent=document.querySelector('.bottom-content > div:nth-child(1) > p:nth-child(2)')
+serviceContent.textContent=siteContent["main-content"]["services-content"]
+
+let productH4=document.querySelector('.bottom-content > div:nth-child(2) > h4:nth-child(1)')
+productH4.textContent=siteContent["main-content"]["product-h4"]
+let productContent=document.querySelector('.bottom-content > div:nth-child(2) > p:nth-child(2)')
+productContent.textContent=siteContent["main-content"]["product-content"]
+
+let visionH4=document.querySelector('.bottom-content > div:nth-child(3) > h4:nth-child(1)')
+visionH4.textContent=siteContent["main-content"]["vision-h4"]
+let visionContent=document.querySelector('.bottom-content > div:nth-child(3) > p:nth-child(2)')
+visionContent.textContent=siteContent["main-content"]["vision-content"]
+
+//contant us
+let contactH4=document.querySelector('.contact > h4:nth-child(1)')
+contactH4.textContent=siteContent["contact"]["contact-h4"]
+let contactAddress=document.querySelector('.contact > p:nth-child(2)')
+contactAddress.textContent=siteContent["contact"]["address"]
+let contactPhone=document.querySelector('.contact > p:nth-child(3)')
+contactPhone.textContent=siteContent["contact"]["phone"]
+let contactEmail=document.querySelector('.contact > p:nth-child(4)')
+contactEmail.textContent=siteContent["contact"]["email"]
+
+//footer
+let copyright=document.querySelector('.container > footer:nth-child(5) > p:nth-child(1)')
+copyright.textContent=siteContent["footer"]["copyright"]
